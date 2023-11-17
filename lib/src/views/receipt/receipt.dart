@@ -113,22 +113,28 @@ class Receipt extends StatelessWidget {
                           return Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    left: 16.0, top: 4, bottom: 4),
-                                child: customSizedText(
-                                  text: productName[index],
-                                  fontWeight: FontWeight.w500,
-                                  size: 16,
+                              Flexible(
+                                flex: 2,
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 16.0, top: 4, bottom: 4),
+                                  child: customSizedText(
+                                      text: productName[index],
+                                      fontWeight: FontWeight.w500,
+                                      size: 16,
+                                      maxLine: 2),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    right: 16.0, top: 4, bottom: 4),
-                                child: customSizedText(
-                                  text: productPrice[index],
-                                  fontWeight: FontWeight.w500,
-                                  size: 16,
+                              Flexible(
+                                flex: 2,
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      right: 16.0, top: 4, bottom: 4),
+                                  child: customSizedText(
+                                    text: productPrice[index],
+                                    fontWeight: FontWeight.w500,
+                                    size: 16,
+                                  ),
                                 ),
                               ),
                             ],

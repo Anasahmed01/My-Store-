@@ -10,12 +10,10 @@ class HomeViewModel extends BaseViewModel {
 
   List productList = [];
   List productPriceList = [];
-  List totalPriceList = [];
 
-  
- void totalPrice() {
-    final sum = productPriceList;
-  }
+  num totalPrice = 0;
+
+  totalPriceFunc() {}
 
   addProduct() {
     productList.add(productController.text);
@@ -28,6 +26,11 @@ class HomeViewModel extends BaseViewModel {
   clearFields() {
     productController.clear();
     priceController.clear();
+  }
+
+  deleteProduct({required int index}) {
+    productList.removeAt(index);
+    rebuildUi();
   }
 
   navigateToReceiptView({required productName, required productPrice}) {
