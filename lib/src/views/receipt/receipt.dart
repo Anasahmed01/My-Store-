@@ -23,91 +23,92 @@ class Receipt extends StatelessWidget {
         return Scaffold(
           body: Center(
             child: SingleChildScrollView(
-              child: Container(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.grey.shade400,
-                        spreadRadius: 1,
-                        blurRadius: 5),
-                  ],
-                ),
-                height: MediaQuery.sizeOf(context).height * 0.8,
-                width: MediaQuery.sizeOf(context).height * 0.6,
-                child: Column(
-                  children: [
-                    SvgPicture.asset(
-                      'assets/Cart.svg',
-                      height: 120,
-                      width: 80,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    customSizedText(
-                      text: 'GROCERY',
-                      size: 25,
-                      fontWeight: FontWeight.w700,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    customSizedText(
-                      text: 'Address: B231, Nagan Chorangi, Karachi',
-                      size: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    customSizedText(
-                      text: 'Tel: +92 987654321',
-                      size: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    customSizedText(
-                      text: 'Web: www.GroceryStore.com',
-                      size: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    DottedLine(
-                      dashLength: 5,
-                      dashGapLength: 2,
-                      lineThickness: 1,
-                      dashColor: Colors.black,
-                      dashGapColor: Colors.white,
-                      direction: Axis.horizontal,
-                      lineLength: double.infinity,
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: 16.0),
-                          child: customSizedText(
-                            text: 'Item',
-                            fontWeight: FontWeight.w500,
-                            size: 16,
+              child: Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey.shade400,
+                          spreadRadius: 1,
+                          blurRadius: 5),
+                    ],
+                  ),
+                  width: MediaQuery.sizeOf(context).height * 0.6,
+                  child: Column(
+                    children: [
+                      SvgPicture.asset(
+                        'assets/Cart.svg',
+                        height: 120,
+                        width: 80,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      customSizedText(
+                        text: 'GROCERY',
+                        size: 25,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      customSizedText(
+                        text: 'Address: B231, Nagan Chorangi, Karachi',
+                        size: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      customSizedText(
+                        text: 'Tel: +92 987654321',
+                        size: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      customSizedText(
+                        text: 'Web: www.GroceryStore.com',
+                        size: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      DottedLine(
+                        dashLength: 5,
+                        dashGapLength: 2,
+                        lineThickness: 1,
+                        dashColor: Colors.black,
+                        dashGapColor: Colors.white,
+                        direction: Axis.horizontal,
+                        lineLength: double.infinity,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 16.0),
+                            child: customSizedText(
+                              text: 'Item',
+                              fontWeight: FontWeight.w500,
+                              size: 16,
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(right: 16.0),
-                          child: customSizedText(
-                            text: 'Price',
-                            fontWeight: FontWeight.w500,
-                            size: 16,
+                          Padding(
+                            padding: EdgeInsets.only(right: 16.0),
+                            child: customSizedText(
+                              text: 'Price',
+                              fontWeight: FontWeight.w500,
+                              size: 16,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Expanded(
-                      child: ListView.builder(
+                        ],
+                      ),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
                         itemCount: productName.length,
                         itemBuilder: (context, index) {
                           return Row(
@@ -141,54 +142,57 @@ class Receipt extends StatelessWidget {
                           );
                         },
                       ),
-                    ),
-                    DottedLine(
-                      dashLength: 5,
-                      dashGapLength: 2,
-                      lineThickness: 1,
-                      dashColor: Colors.black,
-                      dashGapColor: Colors.white,
-                      direction: Axis.horizontal,
-                      lineLength: double.infinity,
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        customSizedText(
-                          text: 'Total Price: ',
-                          size: 24,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    DottedLine(
-                      dashLength: 5,
-                      dashGapLength: 2,
-                      lineThickness: 2,
-                      dashColor: Colors.black,
-                      dashGapColor: Colors.white,
-                      direction: Axis.horizontal,
-                      lineLength: double.infinity,
-                    ),
-                    SizedBox(
-                      height: 2,
-                    ),
-                    DottedLine(
-                      dashLength: 5,
-                      dashGapLength: 2,
-                      lineThickness: 2,
-                      dashColor: Colors.black,
-                      dashGapColor: Colors.white,
-                      direction: Axis.horizontal,
-                      lineLength: double.infinity,
-                    ),
-                  ],
+                      SizedBox(
+                        height: 100,
+                      ),
+                      DottedLine(
+                        dashLength: 5,
+                        dashGapLength: 2,
+                        lineThickness: 1,
+                        dashColor: Colors.black,
+                        dashGapColor: Colors.white,
+                        direction: Axis.horizontal,
+                        lineLength: double.infinity,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          customSizedText(
+                            text: 'Total Price: ',
+                            size: 24,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      DottedLine(
+                        dashLength: 5,
+                        dashGapLength: 2,
+                        lineThickness: 2,
+                        dashColor: Colors.black,
+                        dashGapColor: Colors.white,
+                        direction: Axis.horizontal,
+                        lineLength: double.infinity,
+                      ),
+                      SizedBox(
+                        height: 2,
+                      ),
+                      DottedLine(
+                        dashLength: 5,
+                        dashGapLength: 2,
+                        lineThickness: 2,
+                        dashColor: Colors.black,
+                        dashGapColor: Colors.white,
+                        direction: Axis.horizontal,
+                        lineLength: double.infinity,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

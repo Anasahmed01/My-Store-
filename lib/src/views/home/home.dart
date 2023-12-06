@@ -14,9 +14,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => HomeViewModel(),
-      onViewModelReady: (viewModel) async {
-        await viewModel.totalPriceFunc();
-      },
+      onViewModelReady: (viewModel) async {},
       builder: (context, viewModel, child) {
         return Scaffold(
           body: Container(
@@ -86,7 +84,6 @@ class Home extends StatelessWidget {
                                     productName: viewModel.productList,
                                     productPrice: viewModel.productPriceList,
                                   );
-                                  viewModel.totalPriceFunc();
                                 },
                                 child: customButton(
                                   text: 'Check Out',

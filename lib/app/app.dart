@@ -8,5 +8,6 @@ import 'package:stacked_services/stacked_services.dart';
   MaterialRoute(page: Receipt),
 ], dependencies: [
   Singleton(classType: NavigationService),
+  Singleton(classType: SnackbarService),
 ])
 class App {}
