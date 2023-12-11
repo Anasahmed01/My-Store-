@@ -41,6 +41,8 @@ dependencies:
   stacked_generator: ^1.5.1
   flutter_svg: ^2.0.9
   dotted_line: ^3.2.2
+  printing: ^5.11.1
+  pdf: ^3.10.7
 
 dev_dependencies:
   flutter_test:

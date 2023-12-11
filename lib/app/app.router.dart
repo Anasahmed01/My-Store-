@@ -48,7 +48,8 @@ class StackedRouter extends _i1.RouterBase {
         builder: (context) => _i3.Receipt(
             key: args.key,
             productName: args.productName,
-            productPrice: args.productPrice),
+            productPrice: args.productPrice,
+            totalPrice: args.totalPrice),
         settings: data,
       );
     },
@@ -66,6 +67,7 @@ class ReceiptArguments {
     this.key,
     required this.productName,
     required this.productPrice,
+    required this.totalPrice,
   });
 
   final _i4.Key? key;
@@ -74,9 +76,11 @@ class ReceiptArguments {
 
   final List<dynamic> productPrice;
 
+  final int totalPrice;
+
   @override
   String toString() {
-    return '{"key": "$key", "productName": "$productName", "productPrice": "$productPrice"}';
+    return '{"key": "$key", "productName": "$productName", "productPrice": "$productPrice", "totalPrice": "$totalPrice"}';
   }
 
   @override
@@ -84,12 +88,16 @@ class ReceiptArguments {
     if (identical(this, other)) return true;
     return other.key == key &&
         other.productName == productName &&
-        other.productPrice == productPrice;
+        other.productPrice == productPrice &&
+        other.totalPrice == totalPrice;
   }
 
   @override
   int get hashCode {
-    return key.hashCode ^ productName.hashCode ^ productPrice.hashCode;
+    return key.hashCode ^
+        productName.hashCode ^
+        productPrice.hashCode ^
+        totalPrice.hashCode;
   }
 }
 
@@ -112,6 +120,7 @@ extension NavigatorStateExtension on _i5.NavigationService {
     _i4.Key? key,
     required List<dynamic> productName,
     required List<dynamic> productPrice,
+    required int totalPrice,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -120,7 +129,10 @@ extension NavigatorStateExtension on _i5.NavigationService {
   }) async {
     return navigateTo<dynamic>(Routes.receipt,
         arguments: ReceiptArguments(
-            key: key, productName: productName, productPrice: productPrice),
+            key: key,
+            productName: productName,
+            productPrice: productPrice,
+            totalPrice: totalPrice),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -145,6 +157,7 @@ extension NavigatorStateExtension on _i5.NavigationService {
     _i4.Key? key,
     required List<dynamic> productName,
     required List<dynamic> productPrice,
+    required int totalPrice,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -153,7 +166,10 @@ extension NavigatorStateExtension on _i5.NavigationService {
   }) async {
     return replaceWith<dynamic>(Routes.receipt,
         arguments: ReceiptArguments(
-            key: key, productName: productName, productPrice: productPrice),
+            key: key,
+            productName: productName,
+            productPrice: productPrice,
+            totalPrice: totalPrice),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

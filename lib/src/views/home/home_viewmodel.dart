@@ -11,10 +11,10 @@ class HomeViewModel extends BaseViewModel {
   TextEditingController productController = TextEditingController();
   TextEditingController priceController = TextEditingController();
 
-  List productList = [];
-  List productPriceList = [];
+  final formKey = GlobalKey<FormState>();
 
-  num totalPrice = 0;
+  List<String> productList = [];
+  List<String> productPriceList = [];
 
   addProduct() {
     if (productController.text.isEmpty && priceController.text.isEmpty) {
@@ -40,13 +40,15 @@ class HomeViewModel extends BaseViewModel {
     rebuildUi();
   }
 
-  navigateToReceiptView({required productName, required productPrice}) {
+  navigateToReceiptView(
+      {required productName, required productPrice, required totalPrice}) {
     if (productList.isEmpty && productPriceList.isEmpty) {
       ShowSnackBarService.showSnackbar('', 'please add some product!');
     } else {
       locator<NavigationService>().navigateTo(
         Routes.receipt,
         arguments: ReceiptArguments(
+          totalPrice: totalPrice,
           productName: productName,
           productPrice: productPrice,
         ),
@@ -56,15 +58,19 @@ class HomeViewModel extends BaseViewModel {
     rebuildUi();
   }
 
-  total() async {
-    // Create a list of integers
-    var subTotalPrice = await Future.wait(productPriceList as Iterable<Future>);
+  var totalPrice = 0;
+  total() {
+    List<String> prList = productPriceList;
 
-    // Calculate the sum of the list using the fold() method
-    var sum = subTotalPrice.fold(
+    List<int> numbers = prList.map((price) => int.parse(price)).toList();
+print('total priceeeeeee>>>>>>${numbers}');
+    var sum = numbers.fold(
         0, (dynamic currentSum, dynamic element) => currentSum + element);
 
-    // Print the result
-    print('Sum of the list: $sum');
+    // Add the sum to totalPrice
+    rebuildUi();
+    totalPrice = sum as int;
+    print('total priceeeeeee>>>>>>${totalPrice}');
+    rebuildUi();
   }
 }

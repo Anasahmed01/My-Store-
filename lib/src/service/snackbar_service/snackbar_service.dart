@@ -10,7 +10,7 @@ class ShowSnackBarService {
 
   static Future<dynamic>? showSnackbar(String title, String message) {
     snackbarService.showSnackbar(
-        title: title, message: message, duration: const Duration(seconds: 2));
+        title: title, message: message, duration: const Duration(seconds: 2),);
   }
 
   static Future<dynamic>? showDialogBox(

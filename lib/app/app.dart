@@ -5,7 +5,9 @@ import 'package:stacked_services/stacked_services.dart';
 
 @StackedApp(routes: [
   MaterialRoute(page: Home, initial: true),
-  MaterialRoute(page: Receipt),
+  MaterialRoute(
+    page: Receipt,
+  ),
 ], dependencies: [
   Singleton(classType: NavigationService),
   Singleton(classType: SnackbarService),
