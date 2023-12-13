@@ -1,4 +1,4 @@
-// ignore_for_file: unrelated_type_equality_checks
+// ignore_for_file: unrelated_type_equality_checks, unnecessary_brace_in_string_interps, avoid_print
 
 import 'package:checkout/app/app.locator.dart';
 import 'package:checkout/app/app.router.dart';
@@ -37,7 +37,9 @@ class HomeViewModel extends BaseViewModel {
 
   deleteProduct({required int index}) {
     productList.removeAt(index);
+    productPriceList.removeAt(index);
     rebuildUi();
+    notifyListeners();
   }
 
   navigateToReceiptView(
@@ -63,7 +65,7 @@ class HomeViewModel extends BaseViewModel {
     List<String> prList = productPriceList;
 
     List<int> numbers = prList.map((price) => int.parse(price)).toList();
-print('total priceeeeeee>>>>>>${numbers}');
+    print('total priceeeeeee>>>>>>${numbers}');
     var sum = numbers.fold(
         0, (dynamic currentSum, dynamic element) => currentSum + element);
 
@@ -71,6 +73,7 @@ print('total priceeeeeee>>>>>>${numbers}');
     rebuildUi();
     totalPrice = sum as int;
     print('total priceeeeeee>>>>>>${totalPrice}');
+    notifyListeners();
     rebuildUi();
   }
 }
