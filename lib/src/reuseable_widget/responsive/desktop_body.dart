@@ -119,7 +119,10 @@ class DesktopBody extends StatelessWidget {
                           title: customSizedText(
                             text: viewModel.productList[index],
                             fontWeight: FontWeight.w500,
-                            size: 16,
+                            maxFontSize: 16,
+                            minFontSize: 16,
+                            maxLine: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
                           trailing: SizedBox(
                             width: 120,
@@ -131,7 +134,10 @@ class DesktopBody extends StatelessWidget {
                                     text:
                                         "Rs: ${viewModel.productPriceList[index]}",
                                     fontWeight: FontWeight.w500,
-                                    size: 16,
+                                    maxFontSize: 16,
+                                    minFontSize: 16,
+                                    maxLine: 1,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
                                 GestureDetector(

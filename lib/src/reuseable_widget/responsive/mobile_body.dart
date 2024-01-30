@@ -81,8 +81,7 @@ class MobileBody extends StatelessWidget {
                                   child: customButton(
                                     text: 'Add to Cart',
                                     buttonHeight: 46,
-                                    buttonwidth:
-                                        MediaQuery.sizeOf(context).width * 0.2,
+                                    buttonwidth: 120,
                                   ),
                                 ),
                                 SizedBox(
@@ -100,8 +99,7 @@ class MobileBody extends StatelessWidget {
                                   child: customButton(
                                     text: 'Check Out',
                                     buttonHeight: 46,
-                                    buttonwidth:
-                                        MediaQuery.sizeOf(context).width * 0.2,
+                                    buttonwidth: 120,
                                   ),
                                 ),
                               ],
@@ -119,7 +117,10 @@ class MobileBody extends StatelessWidget {
                           title: customSizedText(
                             text: viewModel.productList[index],
                             fontWeight: FontWeight.w500,
-                            size: 16,
+                         maxFontSize: 16,
+                              minFontSize: 16,
+                              maxLine: 1,
+                              overflow: TextOverflow.ellipsis,
                           ),
                           trailing: SizedBox(
                             width: 120,
@@ -131,7 +132,10 @@ class MobileBody extends StatelessWidget {
                                     text:
                                         "Rs: ${viewModel.productPriceList[index]}",
                                     fontWeight: FontWeight.w500,
-                                    size: 16,
+                                    maxFontSize: 16,
+                              minFontSize: 16,
+                              maxLine: 1,
+                              overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
                                 GestureDetector(
