@@ -117,10 +117,10 @@ class MobileBody extends StatelessWidget {
                           title: customSizedText(
                             text: viewModel.productList[index],
                             fontWeight: FontWeight.w500,
-                         maxFontSize: 16,
-                              minFontSize: 16,
-                              maxLine: 1,
-                              overflow: TextOverflow.ellipsis,
+                            maxFontSize: 16,
+                            minFontSize: 16,
+                            maxLine: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
                           trailing: SizedBox(
                             width: 120,
@@ -133,9 +133,9 @@ class MobileBody extends StatelessWidget {
                                         "Rs: ${viewModel.productPriceList[index]}",
                                     fontWeight: FontWeight.w500,
                                     maxFontSize: 16,
-                              minFontSize: 16,
-                              maxLine: 1,
-                              overflow: TextOverflow.ellipsis,
+                                    minFontSize: 16,
+                                    maxLine: 1,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
                                 GestureDetector(
